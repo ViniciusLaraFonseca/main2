@@ -1,0 +1,913 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\documentclass[
+]{article}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{5}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{caption}
+\usepackage{array}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+\usepackage{tabu}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+\usepackage[normalem]{ulem}
+\usepackage{makecell}
+\usepackage{xcolor}
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Estudo de Simulação --- Comparação Espacial vs.~Não-Espacial},
+  pdfauthor={Vinicius Fonseca},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Estudo de Simulação --- Comparação Espacial vs.~Não-Espacial}
+\author{Vinicius Fonseca}
+\date{}
+
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\section{Introdução}\label{introduuxe7uxe3o}
+
+Este relatório compara o modelo \textbf{espacial} (com efeito ICAR) e o
+modelo \textbf{não-espacial} em diferentes cenários de geração de dados.
+Os dados foram gerados \textbf{sem} efeito espacial verdadeiro, de modo
+que o estudo avalia a penalidade --- em termos de critérios de
+informação e qualidade inferencial --- de incluir desnecessariamente o
+componente ICAR, e vice-versa.
+
+São avaliados:
+
+\begin{itemize}
+\tightlist
+\item
+  Qualidade inferencial de \(\beta\), \(\gamma\) e \(\tau_s\) (apenas no
+  modelo espacial)
+\item
+  Critérios de informação WAIC e LPML para seleção de modelo
+\item
+  Trajetórias estimadas de \(\lambda_{i,t}\) e \(\theta_{i,t}\)
+\item
+  Diagnósticos MCMC via traceplots
+\end{itemize}
+
+Os cenários cruzam esquemas de geração (\(w = 0{,}7\) e
+\(w \sim \text{Unif}(0{,}7;\,0{,}99)\)) com dimensões de dados
+(\(T \in \{25, 100\}\), \(A \in \{75, 510\}\)).
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Critérios de Informação --- WAIC e
+LPML}\label{crituxe9rios-de-informauxe7uxe3o-waic-e-lpml}
+
+A comparação de WAIC e LPML entre os modelos espacial e não-espacial é o
+principal instrumento de seleção de modelos neste estudo. WAIC menor (ou
+LPML maior) indica melhor ajuste preditivo.
+
+\begingroup\fontsize{9}{11}\selectfont
+
+\begin{longtable}[t]{llrrrr}
+\caption{\label{tab:tab-criteria}Critérios de informação WAIC e LPML: espacial vs. não-espacial}\\
+\toprule
+Modelo & w (geração) & T & A & WAIC & LPML\\
+\midrule
+\cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{3722.494} & \cellcolor{gray!10}{-1882.755}\\
+\cmidrule{1-6}\pagebreak[0]
+Não-Espacial & 0.7 & 25 & 75 & 3722.687 & -1882.298\\
+\cmidrule{1-6}\pagebreak[0]
+\cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{21925.432} & \cellcolor{gray!10}{-11083.490}\\
+\cmidrule{1-6}\pagebreak[0]
+Não-Espacial & 0.7 & 25 & 510 & 21899.953 & -11069.495\\
+\cmidrule{1-6}\pagebreak[0]
+\cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{11479.803} & \cellcolor{gray!10}{-5769.774}\\
+\cmidrule{1-6}\pagebreak[0]
+Não-Espacial & 0.7 & 100 & 75 & 11479.207 & -5772.849\\
+\cmidrule{1-6}\pagebreak[0]
+\cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{58489.780} & \cellcolor{gray!10}{-29427.693}\\
+\cmidrule{1-6}\pagebreak[0]
+Não-Espacial & 0.7 & 100 & 510 & 58476.090 & -29415.415\\
+\cmidrule{1-6}\pagebreak[0]
+\cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{3374.722} & \cellcolor{gray!10}{-1703.625}\\
+\cmidrule{1-6}\pagebreak[0]
+Não-Espacial & Uniforme & 25 & 75 & 3374.588 & -1705.288\\
+\cmidrule{1-6}\pagebreak[0]
+\cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{24638.728} & \cellcolor{gray!10}{-12406.346}\\
+\cmidrule{1-6}\pagebreak[0]
+Não-Espacial & Uniforme & 25 & 510 & 24639.226 & -12405.506\\
+\cmidrule{1-6}\pagebreak[0]
+\cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{12132.688} & \cellcolor{gray!10}{-6094.353}\\
+\cmidrule{1-6}\pagebreak[0]
+Não-Espacial & Uniforme & 100 & 75 & 12132.405 & -6093.604\\
+\cmidrule{1-6}\pagebreak[0]
+\cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{85802.000} & \cellcolor{gray!10}{-43062.529}\\
+\cmidrule{1-6}\pagebreak[0]
+Não-Espacial & Uniforme & 100 & 510 & 85801.261 & -43074.428\\
+\bottomrule
+\end{longtable}
+\endgroup{}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Resultados Inferenciais --- Parâmetros
+Estáticos}\label{resultados-inferenciais-paruxe2metros-estuxe1ticos}
+
+\subsection{\texorpdfstring{Coeficientes de Regressão
+\(\beta\)}{Coeficientes de Regressão \textbackslash beta}}\label{coeficientes-de-regressuxe3o-beta}
+
+\begingroup\fontsize{9}{11}\selectfont
+
+\begin{longtable}[t]{lllrrrrrrr}
+\caption{\label{tab:tab-beta}Desempenho inferencial dos coeficientes $\beta$}\\
+\toprule
+Parâmetro & Modelo & w (geração) & T & A & Bias & MSE & ESS & Cobertura & R-hat\\
+\midrule
+\cellcolor{gray!10}{beta[1]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{0.0065} & \cellcolor{gray!10}{3e-04} & \cellcolor{gray!10}{1538.116} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0024}\\
+\cmidrule{1-10}\pagebreak[0]
+beta[1] & Não-Espacial & 0.7 & 25 & 75 & 0.0042 & 3e-04 & 1589.827 & 1 & 1.0013\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{beta[1]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{0.0099} & \cellcolor{gray!10}{1e-04} & \cellcolor{gray!10}{1854.133} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0007}\\
+\cmidrule{1-10}\pagebreak[0]
+beta[1] & Não-Espacial & 0.7 & 25 & 510 & 0.0090 & 1e-04 & 1857.881 & 1 & 1.0017\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{beta[1]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{0.0287} & \cellcolor{gray!10}{9e-04} & \cellcolor{gray!10}{2167.855} & \cellcolor{gray!10}{0} & \cellcolor{gray!10}{1.0037}\\
+\cmidrule{1-10}\pagebreak[0]
+beta[1] & Não-Espacial & 0.7 & 100 & 75 & 0.0284 & 9e-04 & 2294.860 & 0 & 1.0000\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{beta[1]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{0.0036} & \cellcolor{gray!10}{0e+00} & \cellcolor{gray!10}{1974.052} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0006}\\
+\cmidrule{1-10}\pagebreak[0]
+beta[1] & Não-Espacial & 0.7 & 100 & 510 & 0.0033 & 0e+00 & 2208.838 & 1 & 1.0016\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{beta[1]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{-0.0090} & \cellcolor{gray!10}{5e-04} & \cellcolor{gray!10}{1654.276} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0003}\\
+\cmidrule{1-10}\pagebreak[0]
+beta[1] & Não-Espacial & Uniforme & 25 & 75 & -0.0097 & 5e-04 & 1663.734 & 1 & 1.0016\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{beta[1]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{0.0058} & \cellcolor{gray!10}{1e-04} & \cellcolor{gray!10}{1949.708} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0027}\\
+\cmidrule{1-10}\pagebreak[0]
+beta[1] & Não-Espacial & Uniforme & 25 & 510 & 0.0058 & 1e-04 & 2110.393 & 1 & 1.0000\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{beta[1]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{-0.0076} & \cellcolor{gray!10}{1e-04} & \cellcolor{gray!10}{1897.622} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0011}\\
+\cmidrule{1-10}\pagebreak[0]
+beta[1] & Não-Espacial & Uniforme & 100 & 75 & -0.0076 & 1e-04 & 1865.380 & 1 & 1.0011\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{beta[1]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{-0.0015} & \cellcolor{gray!10}{0e+00} & \cellcolor{gray!10}{1740.379} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0006}\\
+\cmidrule{1-10}\pagebreak[0]
+beta[1] & Não-Espacial & Uniforme & 100 & 510 & -0.0016 & 0e+00 & 1627.087 & 1 & 1.0007\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{beta[2]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{-0.0181} & \cellcolor{gray!10}{6e-04} & \cellcolor{gray!10}{1688.555} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0031}\\
+\cmidrule{1-10}\pagebreak[0]
+beta[2] & Não-Espacial & 0.7 & 25 & 75 & -0.0162 & 5e-04 & 1699.904 & 1 & 1.0022\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{beta[2]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{0.0087} & \cellcolor{gray!10}{1e-04} & \cellcolor{gray!10}{1901.647} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0008}\\
+\cmidrule{1-10}\pagebreak[0]
+beta[2] & Não-Espacial & 0.7 & 25 & 510 & 0.0100 & 2e-04 & 1835.589 & 1 & 1.0014\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{beta[2]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{-0.0111} & \cellcolor{gray!10}{2e-04} & \cellcolor{gray!10}{2332.090} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0001}\\
+\cmidrule{1-10}\pagebreak[0]
+beta[2] & Não-Espacial & 0.7 & 100 & 75 & -0.0109 & 2e-04 & 2415.560 & 1 & 1.0001\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{beta[2]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{-0.0038} & \cellcolor{gray!10}{0e+00} & \cellcolor{gray!10}{1990.989} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0022}\\
+\cmidrule{1-10}\pagebreak[0]
+beta[2] & Não-Espacial & 0.7 & 100 & 510 & -0.0035 & 0e+00 & 1770.846 & 1 & 1.0027\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{beta[2]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{-0.0251} & \cellcolor{gray!10}{1e-03} & \cellcolor{gray!10}{1621.552} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0005}\\
+\cmidrule{1-10}\pagebreak[0]
+beta[2] & Não-Espacial & Uniforme & 25 & 75 & -0.0261 & 1e-03 & 1616.767 & 1 & 1.0003\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{beta[2]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{0.0069} & \cellcolor{gray!10}{1e-04} & \cellcolor{gray!10}{1953.447} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0006}\\
+\cmidrule{1-10}\pagebreak[0]
+beta[2] & Não-Espacial & Uniforme & 25 & 510 & 0.0071 & 1e-04 & 1975.048 & 1 & 1.0008\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{beta[2]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{-0.0035} & \cellcolor{gray!10}{1e-04} & \cellcolor{gray!10}{2201.998} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0001}\\
+\cmidrule{1-10}\pagebreak[0]
+beta[2] & Não-Espacial & Uniforme & 100 & 75 & -0.0033 & 1e-04 & 2318.951 & 1 & 1.0001\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{beta[2]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{0.0072} & \cellcolor{gray!10}{1e-04} & \cellcolor{gray!10}{1799.917} & \cellcolor{gray!10}{0} & \cellcolor{gray!10}{0.9998}\\
+\cmidrule{1-10}\pagebreak[0]
+beta[2] & Não-Espacial & Uniforme & 100 & 510 & 0.0072 & 1e-04 & 2119.416 & 0 & 1.0027\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{beta[3]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{-0.0023} & \cellcolor{gray!10}{3e-04} & \cellcolor{gray!10}{3754.120} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0026}\\
+\cmidrule{1-10}\pagebreak[0]
+beta[3] & Não-Espacial & 0.7 & 25 & 75 & -0.0025 & 3e-04 & 3795.832 & 1 & 1.0003\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{beta[3]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{-0.0080} & \cellcolor{gray!10}{1e-04} & \cellcolor{gray!10}{3750.602} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0001}\\
+\cmidrule{1-10}\pagebreak[0]
+beta[3] & Não-Espacial & 0.7 & 25 & 510 & -0.0075 & 1e-04 & 3470.281 & 1 & 1.0019\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{beta[3]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{-0.0192} & \cellcolor{gray!10}{4e-04} & \cellcolor{gray!10}{3793.292} & \cellcolor{gray!10}{0} & \cellcolor{gray!10}{1.0018}\\
+\cmidrule{1-10}\pagebreak[0]
+beta[3] & Não-Espacial & 0.7 & 100 & 75 & -0.0194 & 4e-04 & 3771.983 & 0 & 1.0005\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{beta[3]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{-0.0133} & \cellcolor{gray!10}{2e-04} & \cellcolor{gray!10}{2698.249} & \cellcolor{gray!10}{0} & \cellcolor{gray!10}{1.0000}\\
+\cmidrule{1-10}\pagebreak[0]
+beta[3] & Não-Espacial & 0.7 & 100 & 510 & -0.0133 & 2e-04 & 2976.639 & 0 & 1.0001\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{beta[3]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{0.0029} & \cellcolor{gray!10}{3e-04} & \cellcolor{gray!10}{3363.364} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0015}\\
+\cmidrule{1-10}\pagebreak[0]
+beta[3] & Não-Espacial & Uniforme & 25 & 75 & 0.0035 & 3e-04 & 3575.676 & 1 & 1.0005\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{beta[3]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{-0.0006} & \cellcolor{gray!10}{1e-04} & \cellcolor{gray!10}{3396.427} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0006}\\
+\cmidrule{1-10}\pagebreak[0]
+beta[3] & Não-Espacial & Uniforme & 25 & 510 & -0.0006 & 0e+00 & 3353.309 & 1 & 1.0008\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{beta[3]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{0.0003} & \cellcolor{gray!10}{1e-04} & \cellcolor{gray!10}{3854.243} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0008}\\
+\cmidrule{1-10}\pagebreak[0]
+beta[3] & Não-Espacial & Uniforme & 100 & 75 & 0.0003 & 1e-04 & 3976.640 & 1 & 1.0004\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{beta[3]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{0.0005} & \cellcolor{gray!10}{0e+00} & \cellcolor{gray!10}{2582.443} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{0.9999}\\
+\cmidrule{1-10}\pagebreak[0]
+beta[3] & Não-Espacial & Uniforme & 100 & 510 & 0.0006 & 0e+00 & 2455.335 & 1 & 1.0035\\
+\bottomrule
+\end{longtable}
+\endgroup{}
+
+\subsection{\texorpdfstring{Parâmetros de Cluster
+\(\gamma\)}{Parâmetros de Cluster \textbackslash gamma}}\label{paruxe2metros-de-cluster-gamma}
+
+\begingroup\fontsize{9}{11}\selectfont
+
+\begin{longtable}[t]{lllrrrrrrr}
+\caption{\label{tab:tab-gamma}Desempenho inferencial dos parâmetros de cluster $\gamma$}\\
+\toprule
+Parâmetro & Modelo & w (geração) & T & A & Bias & MSE & ESS & Cobertura & R-hat\\
+\midrule
+\cellcolor{gray!10}{gamma[1]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{0.0010} & \cellcolor{gray!10}{0.0008} & \cellcolor{gray!10}{1302.8556} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0119}\\
+\cmidrule{1-10}\pagebreak[0]
+gamma[1] & Não-Espacial & 0.7 & 25 & 75 & -0.0114 & 0.0009 & 1895.2535 & 1 & 1.0010\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{gamma[1]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{0.0199} & \cellcolor{gray!10}{0.0010} & \cellcolor{gray!10}{431.9330} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0170}\\
+\cmidrule{1-10}\pagebreak[0]
+gamma[1] & Não-Espacial & 0.7 & 25 & 510 & 0.0028 & 0.0008 & 909.3848 & 1 & 1.0006\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{gamma[1]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{-0.0063} & \cellcolor{gray!10}{0.0008} & \cellcolor{gray!10}{627.1785} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0002}\\
+\cmidrule{1-10}\pagebreak[0]
+gamma[1] & Não-Espacial & 0.7 & 100 & 75 & -0.0091 & 0.0008 & 800.3097 & 1 & 1.0026\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{gamma[1]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{0.0212} & \cellcolor{gray!10}{0.0010} & \cellcolor{gray!10}{249.6766} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0002}\\
+\cmidrule{1-10}\pagebreak[0]
+gamma[1] & Não-Espacial & 0.7 & 100 & 510 & 0.0049 & 0.0008 & 233.4725 & 1 & 1.0149\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{gamma[1]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{0.0027} & \cellcolor{gray!10}{0.0008} & \cellcolor{gray!10}{1729.8525} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0007}\\
+\cmidrule{1-10}\pagebreak[0]
+gamma[1] & Não-Espacial & Uniforme & 25 & 75 & 0.0030 & 0.0008 & 1815.2983 & 1 & 1.0016\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{gamma[1]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{-0.0041} & \cellcolor{gray!10}{0.0008} & \cellcolor{gray!10}{776.9207} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0012}\\
+\cmidrule{1-10}\pagebreak[0]
+gamma[1] & Não-Espacial & Uniforme & 25 & 510 & -0.0052 & 0.0008 & 800.0534 & 1 & 1.0003\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{gamma[1]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{-0.0008} & \cellcolor{gray!10}{0.0008} & \cellcolor{gray!10}{639.7698} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0020}\\
+\cmidrule{1-10}\pagebreak[0]
+gamma[1] & Não-Espacial & Uniforme & 100 & 75 & -0.0028 & 0.0008 & 813.9492 & 1 & 1.0005\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{gamma[1]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{-0.0158} & \cellcolor{gray!10}{0.0009} & \cellcolor{gray!10}{241.5628} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{0.9998}\\
+\cmidrule{1-10}\pagebreak[0]
+gamma[1] & Não-Espacial & Uniforme & 100 & 510 & -0.0139 & 0.0008 & 294.7029 & 1 & 1.0122\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{gamma[2]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{0.0710} & \cellcolor{gray!10}{0.0195} & \cellcolor{gray!10}{289.5127} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.4004}\\
+\cmidrule{1-10}\pagebreak[0]
+gamma[2] & Não-Espacial & 0.7 & 25 & 75 & -0.0070 & 0.0051 & 648.9660 & 1 & 1.0091\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{gamma[2]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{0.3522} & \cellcolor{gray!10}{0.1287} & \cellcolor{gray!10}{121.9921} & \cellcolor{gray!10}{0} & \cellcolor{gray!10}{1.0249}\\
+\cmidrule{1-10}\pagebreak[0]
+gamma[2] & Não-Espacial & 0.7 & 25 & 510 & -0.0252 & 0.0033 & 456.4153 & 1 & 1.0014\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{gamma[2]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{0.0520} & \cellcolor{gray!10}{0.0147} & \cellcolor{gray!10}{135.1992} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0471}\\
+\cmidrule{1-10}\pagebreak[0]
+gamma[2] & Não-Espacial & 0.7 & 100 & 75 & -0.0052 & 0.0048 & 239.5434 & 1 & 1.0112\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{gamma[2]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{0.2376} & \cellcolor{gray!10}{0.0616} & \cellcolor{gray!10}{45.5626} & \cellcolor{gray!10}{0} & \cellcolor{gray!10}{1.0597}\\
+\cmidrule{1-10}\pagebreak[0]
+gamma[2] & Não-Espacial & 0.7 & 100 & 510 & -0.0246 & 0.0030 & 150.7089 & 1 & 1.0027\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{gamma[2]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{0.0766} & \cellcolor{gray!10}{0.0187} & \cellcolor{gray!10}{326.7488} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0042}\\
+\cmidrule{1-10}\pagebreak[0]
+gamma[2] & Não-Espacial & Uniforme & 25 & 75 & 0.0627 & 0.0144 & 441.2452 & 1 & 1.0007\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{gamma[2]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{0.0309} & \cellcolor{gray!10}{0.0054} & \cellcolor{gray!10}{316.8644} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0010}\\
+\cmidrule{1-10}\pagebreak[0]
+gamma[2] & Não-Espacial & Uniforme & 25 & 510 & 0.0323 & 0.0056 & 331.4391 & 1 & 1.0037\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{gamma[2]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{0.0731} & \cellcolor{gray!10}{0.0167} & \cellcolor{gray!10}{135.4226} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0102}\\
+\cmidrule{1-10}\pagebreak[0]
+gamma[2] & Não-Espacial & Uniforme & 100 & 75 & 0.0585 & 0.0151 & 124.4000 & 1 & 1.0021\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{gamma[2]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{-0.0021} & \cellcolor{gray!10}{0.0034} & \cellcolor{gray!10}{71.3339} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0214}\\
+\cmidrule{1-10}\pagebreak[0]
+gamma[2] & Não-Espacial & Uniforme & 100 & 510 & -0.0106 & 0.0036 & 102.5948 & 1 & 1.0027\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{gamma[3]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{0.0910} & \cellcolor{gray!10}{0.0268} & \cellcolor{gray!10}{235.1287} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0023}\\
+\cmidrule{1-10}\pagebreak[0]
+gamma[3] & Não-Espacial & 0.7 & 25 & 75 & 0.0044 & 0.0065 & 835.2105 & 1 & 1.0004\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{gamma[3]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{-0.0068} & \cellcolor{gray!10}{0.0047} & \cellcolor{gray!10}{96.5942} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0743}\\
+\cmidrule{1-10}\pagebreak[0]
+gamma[3] & Não-Espacial & 0.7 & 25 & 510 & 0.0139 & 0.0047 & 280.9667 & 1 & 1.0005\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{gamma[3]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{0.0321} & \cellcolor{gray!10}{0.0128} & \cellcolor{gray!10}{167.2387} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0828}\\
+\cmidrule{1-10}\pagebreak[0]
+gamma[3] & Não-Espacial & 0.7 & 100 & 75 & -0.0132 & 0.0055 & 303.8531 & 1 & 1.0055\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{gamma[3]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{-0.0220} & \cellcolor{gray!10}{0.0039} & \cellcolor{gray!10}{63.5637} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0963}\\
+\cmidrule{1-10}\pagebreak[0]
+gamma[3] & Não-Espacial & 0.7 & 100 & 510 & -0.0172 & 0.0036 & 146.2465 & 1 & 1.0033\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{gamma[3]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{0.0519} & \cellcolor{gray!10}{0.0155} & \cellcolor{gray!10}{468.2725} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0027}\\
+\cmidrule{1-10}\pagebreak[0]
+gamma[3] & Não-Espacial & Uniforme & 25 & 75 & 0.0403 & 0.0128 & 642.8193 & 1 & 1.0002\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{gamma[3]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{-0.0020} & \cellcolor{gray!10}{0.0045} & \cellcolor{gray!10}{328.0056} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0030}\\
+\cmidrule{1-10}\pagebreak[0]
+gamma[3] & Não-Espacial & Uniforme & 25 & 510 & -0.0023 & 0.0044 & 383.8721 & 1 & 1.0003\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{gamma[3]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{0.1718} & \cellcolor{gray!10}{0.0529} & \cellcolor{gray!10}{89.4252} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0020}\\
+\cmidrule{1-10}\pagebreak[0]
+gamma[3] & Não-Espacial & Uniforme & 100 & 75 & 0.1558 & 0.0439 & 110.2259 & 1 & 1.0109\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{gamma[3]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{0.0764} & \cellcolor{gray!10}{0.0118} & \cellcolor{gray!10}{57.6032} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0116}\\
+\cmidrule{1-10}\pagebreak[0]
+gamma[3] & Não-Espacial & Uniforme & 100 & 510 & 0.0567 & 0.0085 & 65.4649 & 1 & 1.0086\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{gamma[4]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{0.0127} & \cellcolor{gray!10}{0.0161} & \cellcolor{gray!10}{207.5590} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0036}\\
+\cmidrule{1-10}\pagebreak[0]
+gamma[4] & Não-Espacial & 0.7 & 25 & 75 & -0.0201 & 0.0103 & 665.3302 & 1 & 1.0072\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{gamma[4]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{-0.1032} & \cellcolor{gray!10}{0.0123} & \cellcolor{gray!10}{178.1445} & \cellcolor{gray!10}{0} & \cellcolor{gray!10}{1.0649}\\
+\cmidrule{1-10}\pagebreak[0]
+gamma[4] & Não-Espacial & 0.7 & 25 & 510 & -0.0690 & 0.0082 & 447.4065 & 1 & 1.0015\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{gamma[4]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{0.0038} & \cellcolor{gray!10}{0.0134} & \cellcolor{gray!10}{114.1329} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0366}\\
+\cmidrule{1-10}\pagebreak[0]
+gamma[4] & Não-Espacial & 0.7 & 100 & 75 & -0.0298 & 0.0090 & 216.0268 & 1 & 1.0036\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{gamma[4]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{-0.0497} & \cellcolor{gray!10}{0.0065} & \cellcolor{gray!10}{45.8679} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{0.9998}\\
+\cmidrule{1-10}\pagebreak[0]
+gamma[4] & Não-Espacial & 0.7 & 100 & 510 & 0.0276 & 0.0072 & 79.9108 & 1 & 1.2181\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{gamma[4]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{0.0914} & \cellcolor{gray!10}{0.0294} & \cellcolor{gray!10}{324.9051} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0075}\\
+\cmidrule{1-10}\pagebreak[0]
+gamma[4] & Não-Espacial & Uniforme & 25 & 75 & 0.0600 & 0.0199 & 529.3908 & 1 & 1.0019\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{gamma[4]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{-0.0032} & \cellcolor{gray!10}{0.0055} & \cellcolor{gray!10}{276.8254} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0094}\\
+\cmidrule{1-10}\pagebreak[0]
+gamma[4] & Não-Espacial & Uniforme & 25 & 510 & -0.0085 & 0.0050 & 327.5599 & 1 & 1.0059\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{gamma[4]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{-0.0474} & \cellcolor{gray!10}{0.0098} & \cellcolor{gray!10}{194.4146} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0285}\\
+\cmidrule{1-10}\pagebreak[0]
+gamma[4] & Não-Espacial & Uniforme & 100 & 75 & -0.0338 & 0.0111 & 179.1480 & 1 & 1.0020\\
+\cmidrule{1-10}\pagebreak[0]
+\cellcolor{gray!10}{gamma[4]} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{-0.0536} & \cellcolor{gray!10}{0.0083} & \cellcolor{gray!10}{55.8340} & \cellcolor{gray!10}{1} & \cellcolor{gray!10}{1.0267}\\
+\cmidrule{1-10}\pagebreak[0]
+gamma[4] & Não-Espacial & Uniforme & 100 & 510 & -0.0598 & 0.0079 & 60.7721 & 1 & 1.0050\\
+\bottomrule
+\end{longtable}
+\endgroup{}
+
+\subsection{\texorpdfstring{Precisão Espacial \(\tau_s\) (apenas modelo
+espacial)}{Precisão Espacial \textbackslash tau\_s (apenas modelo espacial)}}\label{precisuxe3o-espacial-tau_s-apenas-modelo-espacial}
+
+\begingroup\fontsize{9}{11}\selectfont
+
+\begin{longtable}[t]{lrrllrlr}
+\caption{\label{tab:tab-tau}Desempenho inferencial de $\tau_s$ — modelo espacial}\\
+\toprule
+w (geração) & T & A & Bias & MSE & ESS & Cobertura & R-hat\\
+\midrule
+\cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{75.9155} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{1.6966}\\
+\cmidrule{1-8}\pagebreak[0]
+0.7 & 25 & 510 & NA & NA & 77.1776 & NA & 1.1086\\
+\cmidrule{1-8}\pagebreak[0]
+\cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{57.4037} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{1.3059}\\
+\cmidrule{1-8}\pagebreak[0]
+0.7 & 100 & 510 & NA & NA & 13.0202 & NA & 1.0245\\
+\cmidrule{1-8}\pagebreak[0]
+\cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{35.3710} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{1.3098}\\
+\cmidrule{1-8}\pagebreak[0]
+Uniforme & 25 & 510 & NA & NA & 27.9901 & NA & 1.0176\\
+\cmidrule{1-8}\pagebreak[0]
+\cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{53.6559} & \cellcolor{gray!10}{NA} & \cellcolor{gray!10}{1.3588}\\
+\cmidrule{1-8}\pagebreak[0]
+Uniforme & 100 & 510 & NA & NA & 15.1681 & NA & 1.0975\\
+\bottomrule
+\end{longtable}
+\endgroup{}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{\texorpdfstring{Painéis Comparativos --- Trajetórias de
+\(\lambda\) e
+\(\theta\)}{Painéis Comparativos --- Trajetórias de \textbackslash lambda e \textbackslash theta}}\label{painuxe9is-comparativos-trajetuxf3rias-de-lambda-e-theta}
+
+Os gráficos a seguir mostram as trajetórias posteriores de
+\(\lambda_{i,t}\) e \(\theta_{i,t}\) para os dois modelos (linha
+colorida = média posterior; faixa = HPD 95\%; linha preta tracejada =
+valor verdadeiro).
+
+\subsection{Cenário: w = 0.7; T = 25; A =
+75}\label{cenuxe1rio-w-0.7-t-25-a-75}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/lambda_comparativo.png}
+\caption*{Trajetórias de $\lambda_{i,t}$}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/theta_comparativo.png}
+\caption*{Trajetórias de $\theta_{i,t}$}
+\end{minipage}
+\end{figure}
+
+\subsection{Cenário: w = 0.7; T = 100; A =
+75}\label{cenuxe1rio-w-0.7-t-100-a-75}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/lambda_comparativo.png}
+\caption*{Trajetórias de $\lambda_{i,t}$}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/theta_comparativo.png}
+\caption*{Trajetórias de $\theta_{i,t}$}
+\end{minipage}
+\end{figure}
+
+\subsection{Cenário: w = 0.7; T = 25; A =
+510}\label{cenuxe1rio-w-0.7-t-25-a-510}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/lambda_comparativo.png}
+\caption*{Trajetórias de $\lambda_{i,t}$}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/theta_comparativo.png}
+\caption*{Trajetórias de $\theta_{i,t}$}
+\end{minipage}
+\end{figure}
+
+\subsection{Cenário: w = 0.7; T = 100; A =
+510}\label{cenuxe1rio-w-0.7-t-100-a-510}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/lambda_comparativo.png}
+\caption*{Trajetórias de $\lambda_{i,t}$}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/theta_comparativo.png}
+\caption*{Trajetórias de $\theta_{i,t}$}
+\end{minipage}
+\end{figure}
+
+\subsection{Cenário: w = Uniforme; T = 25; A =
+75}\label{cenuxe1rio-w-uniforme-t-25-a-75}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/lambda_comparativo.png}
+\caption*{Trajetórias de $\lambda_{i,t}$}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/theta_comparativo.png}
+\caption*{Trajetórias de $\theta_{i,t}$}
+\end{minipage}
+\end{figure}
+
+\subsection{Cenário: w = Uniforme; T = 100; A =
+75}\label{cenuxe1rio-w-uniforme-t-100-a-75}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/lambda_comparativo.png}
+\caption*{Trajetórias de $\lambda_{i,t}$}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/theta_comparativo.png}
+\caption*{Trajetórias de $\theta_{i,t}$}
+\end{minipage}
+\end{figure}
+
+\subsection{Cenário: w = Uniforme; T = 25; A =
+510}\label{cenuxe1rio-w-uniforme-t-25-a-510}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/lambda_comparativo.png}
+\caption*{Trajetórias de $\lambda_{i,t}$}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/theta_comparativo.png}
+\caption*{Trajetórias de $\theta_{i,t}$}
+\end{minipage}
+\end{figure}
+
+\subsection{Cenário: w = Uniforme; T = 100; A =
+510}\label{cenuxe1rio-w-uniforme-t-100-a-510}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/lambda_comparativo.png}
+\caption*{Trajetórias de $\lambda_{i,t}$}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/theta_comparativo.png}
+\caption*{Trajetórias de $\theta_{i,t}$}
+\end{minipage}
+\end{figure}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{\texorpdfstring{Efeito Espacial Estimado \(s_i\) (modelo
+espacial)}{Efeito Espacial Estimado s\_i (modelo espacial)}}\label{efeito-espacial-estimado-s_i-modelo-espacial}
+
+Para cada cenário, o gráfico \texttt{s\_posterior.png} exibe a média
+posterior e o intervalo HPD 95\% do efeito espacial \(s_i\) por região.
+Como os dados foram gerados \textbf{sem} efeito espacial verdadeiro,
+espera-se que os intervalos incluam zero na grande maioria das regiões.
+
+\subsubsection{Cenário: w = 0.7; T = 25; A =
+75}\label{cenuxe1rio-w-0.7-t-25-a-75-1}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/spatial/s_posterior.png}
+\caption*{Efeito espacial $s_i$: média posterior e HPD 95\%}
+\end{figure}
+
+\subsubsection{Cenário: w = 0.7; T = 100; A =
+75}\label{cenuxe1rio-w-0.7-t-100-a-75-1}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/spatial/s_posterior.png}
+\caption*{Efeito espacial $s_i$: média posterior e HPD 95\%}
+\end{figure}
+
+\subsubsection{Cenário: w = 0.7; T = 25; A =
+510}\label{cenuxe1rio-w-0.7-t-25-a-510-1}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/spatial/s_posterior.png}
+\caption*{Efeito espacial $s_i$: média posterior e HPD 95\%}
+\end{figure}
+
+\subsubsection{Cenário: w = 0.7; T = 100; A =
+510}\label{cenuxe1rio-w-0.7-t-100-a-510-1}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/spatial/s_posterior.png}
+\caption*{Efeito espacial $s_i$: média posterior e HPD 95\%}
+\end{figure}
+
+\subsubsection{Cenário: w = Uniforme; T = 25; A =
+75}\label{cenuxe1rio-w-uniforme-t-25-a-75-1}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/spatial/s_posterior.png}
+\caption*{Efeito espacial $s_i$: média posterior e HPD 95\%}
+\end{figure}
+
+\subsubsection{Cenário: w = Uniforme; T = 100; A =
+75}\label{cenuxe1rio-w-uniforme-t-100-a-75-1}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/spatial/s_posterior.png}
+\caption*{Efeito espacial $s_i$: média posterior e HPD 95\%}
+\end{figure}
+
+\subsubsection{Cenário: w = Uniforme; T = 25; A =
+510}\label{cenuxe1rio-w-uniforme-t-25-a-510-1}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/spatial/s_posterior.png}
+\caption*{Efeito espacial $s_i$: média posterior e HPD 95\%}
+\end{figure}
+
+\subsubsection{Cenário: w = Uniforme; T = 100; A =
+510}\label{cenuxe1rio-w-uniforme-t-100-a-510-1}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.75\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/spatial/s_posterior.png}
+\caption*{Efeito espacial $s_i$: média posterior e HPD 95\%}
+\end{figure}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Diagnósticos MCMC --- Traceplots por
+Cenário}\label{diagnuxf3sticos-mcmc-traceplots-por-cenuxe1rio}
+
+\subsection{Cenário: w = 0.7; T = 25; A =
+75}\label{cenuxe1rio-w-0.7-t-25-a-75-2}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/spatial/traceplots.png}
+\caption*{Espacial}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/non_spatial/traceplots.png}
+\caption*{Não-Espacial}
+\end{minipage}
+\end{figure}
+
+\subsection{Cenário: w = 0.7; T = 100; A =
+75}\label{cenuxe1rio-w-0.7-t-100-a-75-2}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/spatial/traceplots.png}
+\caption*{Espacial}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/non_spatial/traceplots.png}
+\caption*{Não-Espacial}
+\end{minipage}
+\end{figure}
+
+\subsection{Cenário: w = 0.7; T = 25; A =
+510}\label{cenuxe1rio-w-0.7-t-25-a-510-2}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/spatial/traceplots.png}
+\caption*{Espacial}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/non_spatial/traceplots.png}
+\caption*{Não-Espacial}
+\end{minipage}
+\end{figure}
+
+\subsection{Cenário: w = 0.7; T = 100; A =
+510}\label{cenuxe1rio-w-0.7-t-100-a-510-2}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/spatial/traceplots.png}
+\caption*{Espacial}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/non_spatial/traceplots.png}
+\caption*{Não-Espacial}
+\end{minipage}
+\end{figure}
+
+\subsection{Cenário: w = Uniforme; T = 25; A =
+75}\label{cenuxe1rio-w-uniforme-t-25-a-75-2}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/spatial/traceplots.png}
+\caption*{Espacial}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/non_spatial/traceplots.png}
+\caption*{Não-Espacial}
+\end{minipage}
+\end{figure}
+
+\subsection{Cenário: w = Uniforme; T = 100; A =
+75}\label{cenuxe1rio-w-uniforme-t-100-a-75-2}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/spatial/traceplots.png}
+\caption*{Espacial}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/non_spatial/traceplots.png}
+\caption*{Não-Espacial}
+\end{minipage}
+\end{figure}
+
+\subsection{Cenário: w = Uniforme; T = 25; A =
+510}\label{cenuxe1rio-w-uniforme-t-25-a-510-2}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/spatial/traceplots.png}
+\caption*{Espacial}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/non_spatial/traceplots.png}
+\caption*{Não-Espacial}
+\end{minipage}
+\end{figure}
+
+\subsection{Cenário: w = Uniforme; T = 100; A =
+510}\label{cenuxe1rio-w-uniforme-t-100-a-510-2}
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/spatial/traceplots.png}
+\caption*{Espacial}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\centering
+\includegraphics[width=\linewidth]{C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/non_spatial/traceplots.png}
+\caption*{Não-Espacial}
+\end{minipage}
+\end{figure}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Resumo Comparativo
+Consolidado}\label{resumo-comparativo-consolidado}
+
+\begingroup\fontsize{9}{11}\selectfont
+
+\begin{longtable}[t]{lrrlrrrrrrrrrr}
+\caption{\label{tab:tab-resumo}Resumo comparativo consolidado por cenário e modelo}\\
+\toprule
+w (geração) & T & A & Modelo & Waic & Lpml & Mse Beta & Mse Gamma & Coverage Beta & Coverage Gamma & Ess Beta Min & Ess Gamma Min & Ess Global Min & Rhat Max\\
+\midrule
+\cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{3722.494} & \cellcolor{gray!10}{-1882.755} & \cellcolor{gray!10}{4e-04} & \cellcolor{gray!10}{0.0158} & \cellcolor{gray!10}{1.0000} & \cellcolor{gray!10}{1.00} & \cellcolor{gray!10}{1538.116} & \cellcolor{gray!10}{207.5590} & \cellcolor{gray!10}{75.9155} & \cellcolor{gray!10}{1.6966}\\
+\cmidrule{1-14}\pagebreak[0]
+0.7 & 25 & 75 & Não-Espacial & 3722.687 & -1882.298 & 3e-04 & 0.0057 & 1.0000 & 1.00 & 1589.827 & 648.9660 & 648.9660 & 1.0091\\
+\cmidrule{1-14}\pagebreak[0]
+\cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{21925.432} & \cellcolor{gray!10}{-11083.490} & \cellcolor{gray!10}{1e-04} & \cellcolor{gray!10}{0.0367} & \cellcolor{gray!10}{1.0000} & \cellcolor{gray!10}{0.50} & \cellcolor{gray!10}{1854.133} & \cellcolor{gray!10}{96.5942} & \cellcolor{gray!10}{77.1776} & \cellcolor{gray!10}{1.1086}\\
+\cmidrule{1-14}\pagebreak[0]
+0.7 & 25 & 510 & Não-Espacial & 21899.953 & -11069.495 & 1e-04 & 0.0043 & 1.0000 & 1.00 & 1835.589 & 280.9667 & 280.9667 & 1.0019\\
+\cmidrule{1-14}\pagebreak[0]
+\cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{11479.803} & \cellcolor{gray!10}{-5769.774} & \cellcolor{gray!10}{5e-04} & \cellcolor{gray!10}{0.0104} & \cellcolor{gray!10}{0.3333} & \cellcolor{gray!10}{1.00} & \cellcolor{gray!10}{2167.855} & \cellcolor{gray!10}{114.1329} & \cellcolor{gray!10}{57.4037} & \cellcolor{gray!10}{1.3059}\\
+\cmidrule{1-14}\pagebreak[0]
+0.7 & 100 & 75 & Não-Espacial & 11479.207 & -5772.849 & 5e-04 & 0.0050 & 0.3333 & 1.00 & 2294.860 & 216.0268 & 216.0268 & 1.0112\\
+\cmidrule{1-14}\pagebreak[0]
+\cellcolor{gray!10}{0.7} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{58489.780} & \cellcolor{gray!10}{-29427.693} & \cellcolor{gray!10}{1e-04} & \cellcolor{gray!10}{0.0182} & \cellcolor{gray!10}{0.6667} & \cellcolor{gray!10}{0.75} & \cellcolor{gray!10}{1974.052} & \cellcolor{gray!10}{45.5626} & \cellcolor{gray!10}{13.0202} & \cellcolor{gray!10}{1.0963}\\
+\cmidrule{1-14}\pagebreak[0]
+0.7 & 100 & 510 & Não-Espacial & 58476.090 & -29415.415 & 1e-04 & 0.0036 & 0.6667 & 1.00 & 1770.846 & 79.9108 & 79.9108 & 1.2181\\
+\cmidrule{1-14}\pagebreak[0]
+\cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{3374.722} & \cellcolor{gray!10}{-1703.625} & \cellcolor{gray!10}{6e-04} & \cellcolor{gray!10}{0.0161} & \cellcolor{gray!10}{1.0000} & \cellcolor{gray!10}{1.00} & \cellcolor{gray!10}{1621.552} & \cellcolor{gray!10}{324.9051} & \cellcolor{gray!10}{35.3710} & \cellcolor{gray!10}{1.3098}\\
+\cmidrule{1-14}\pagebreak[0]
+Uniforme & 25 & 75 & Não-Espacial & 3374.588 & -1705.288 & 6e-04 & 0.0120 & 1.0000 & 1.00 & 1616.767 & 441.2452 & 441.2452 & 1.0019\\
+\cmidrule{1-14}\pagebreak[0]
+\cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{25} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{24638.728} & \cellcolor{gray!10}{-12406.346} & \cellcolor{gray!10}{1e-04} & \cellcolor{gray!10}{0.0040} & \cellcolor{gray!10}{1.0000} & \cellcolor{gray!10}{1.00} & \cellcolor{gray!10}{1949.708} & \cellcolor{gray!10}{276.8254} & \cellcolor{gray!10}{27.9901} & \cellcolor{gray!10}{1.0176}\\
+\cmidrule{1-14}\pagebreak[0]
+Uniforme & 25 & 510 & Não-Espacial & 24639.226 & -12405.506 & 1e-04 & 0.0040 & 1.0000 & 1.00 & 1975.048 & 327.5599 & 327.5599 & 1.0059\\
+\cmidrule{1-14}\pagebreak[0]
+\cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{75} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{12132.688} & \cellcolor{gray!10}{-6094.353} & \cellcolor{gray!10}{1e-04} & \cellcolor{gray!10}{0.0201} & \cellcolor{gray!10}{1.0000} & \cellcolor{gray!10}{1.00} & \cellcolor{gray!10}{1897.622} & \cellcolor{gray!10}{89.4252} & \cellcolor{gray!10}{53.6559} & \cellcolor{gray!10}{1.3588}\\
+\cmidrule{1-14}\pagebreak[0]
+Uniforme & 100 & 75 & Não-Espacial & 12132.405 & -6093.604 & 1e-04 & 0.0177 & 1.0000 & 1.00 & 1865.380 & 110.2259 & 110.2259 & 1.0109\\
+\cmidrule{1-14}\pagebreak[0]
+\cellcolor{gray!10}{Uniforme} & \cellcolor{gray!10}{100} & \cellcolor{gray!10}{510} & \cellcolor{gray!10}{Espacial} & \cellcolor{gray!10}{85802.000} & \cellcolor{gray!10}{-43062.529} & \cellcolor{gray!10}{0e+00} & \cellcolor{gray!10}{0.0061} & \cellcolor{gray!10}{0.6667} & \cellcolor{gray!10}{1.00} & \cellcolor{gray!10}{1740.379} & \cellcolor{gray!10}{55.8340} & \cellcolor{gray!10}{15.1681} & \cellcolor{gray!10}{1.0975}\\
+\cmidrule{1-14}\pagebreak[0]
+Uniforme & 100 & 510 & Não-Espacial & 85801.261 & -43074.428 & 0e+00 & 0.0052 & 0.6667 & 1.00 & 1627.087 & 60.7721 & 60.7721 & 1.0122\\
+\bottomrule
+\end{longtable}
+\endgroup{}
+
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\section{Conclusão}\label{conclusuxe3o}
+
+Este estudo examina o custo e o benefício de incluir um componente
+espacial ICAR quando os dados foram gerados sem efeito espacial
+verdadeiro. Os resultados permitem avaliar:
+
+\begin{itemize}
+\tightlist
+\item
+  Se o WAIC/LPML penaliza adequadamente o modelo espacial desnecessário.
+\item
+  Se a cobertura e o viés dos parâmetros \(\beta\) e \(\gamma\) se
+  deterioram com a inclusão espúria de \(s_i\).
+\item
+  Se o efeito espacial estimado \(s_i\) é corretamente concentrado em
+  torno de zero.
+\item
+  O comportamento do MCMC (ESS, \(\hat{R}\), traceplots) em ambos os
+  modelos.
+\end{itemize}
+
+\end{document}

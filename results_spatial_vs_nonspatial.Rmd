@@ -1,0 +1,444 @@
+---
+title: "Estudo de Simulação — Comparação Espacial vs. Não-Espacial"
+author: "Vinicius Fonseca"
+output:
+  pdf_document:
+    toc: true
+    number_sections: true
+    latex_engine: pdflatex
+    keep_tex: true
+    extra_dependencies: ["float", "graphicx", "booktabs", "longtable", "caption"]
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: true
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo      = FALSE,
+  warning   = FALSE,
+  message   = FALSE,
+  fig.align = "center",
+  out.width = "85%"
+)
+
+library(dplyr)
+library(readr)
+library(knitr)
+library(kableExtra)
+library(purrr)
+library(stringr)
+library(tibble)
+library(janitor)
+
+root_dir <- "C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main"
+knitr::opts_knit$set(root.dir = root_dir)
+```
+
+# Introdução
+
+Este relatório compara o modelo **espacial** (com efeito ICAR) e o modelo **não-espacial**
+em diferentes cenários de geração de dados.
+Os dados foram gerados **sem** efeito espacial verdadeiro, de modo que o estudo avalia a
+penalidade — em termos de critérios de informação e qualidade inferencial — de incluir
+desnecessariamente o componente ICAR, e vice-versa.
+
+São avaliados:
+
+- Qualidade inferencial de $\beta$, $\gamma$ e $\tau_s$ (apenas no modelo espacial)
+- Critérios de informação WAIC e LPML para seleção de modelo
+- Trajetórias estimadas de $\lambda_{i,t}$ e $\theta_{i,t}$
+- Diagnósticos MCMC via traceplots
+
+Os cenários cruzam esquemas de geração ($w = 0{,}7$ e $w \sim \text{Unif}(0{,}7;\,0{,}99)$)
+com dimensões de dados ($T \in \{25, 100\}$, $A \in \{75, 510\}$).
+
+```{r index-dirs}
+# Diretórios de resultado — um por cenário de geração
+base_dirs <- c(
+  "resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75",
+  "resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75",
+  "resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510",
+  "resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510",
+  "resultados_spatial_vs_nonspatial_w_unif_T_25_A_75",
+  "resultados_spatial_vs_nonspatial_w_unif_T_100_A_75",
+  "resultados_spatial_vs_nonspatial_w_unif_T_25_A_510",
+  "resultados_spatial_vs_nonspatial_w_unif_T_100_A_510"
+)
+
+# Metadados de cada cenário
+extrair_info <- function(path) {
+  list(
+    w_gen = ifelse(str_detect(path, "unif"), "Uniforme", "0.7"),
+    T_gen = ifelse(str_detect(path, "T_100"), 100L, 25L),
+    A_gen = ifelse(str_detect(path, "A_510"), 510L, 75L)
+  )
+}
+
+# Modelos esperados dentro de cada diretório
+MODEL_TYPES <- c("spatial", "non_spatial")
+
+# Tabela mestra: uma linha por (cenário × modelo)
+resultados <- map_dfr(base_dirs, function(dir) {
+  info <- extrair_info(dir)
+  map_dfr(MODEL_TYPES, function(m) {
+    pasta <- file.path(dir, m)
+    if (!dir.exists(pasta)) return(NULL)
+    tibble(
+      pasta     = pasta,
+      modelo    = m,
+      w_gen     = info$w_gen,
+      T_gen     = info$T_gen,
+      A_gen     = info$A_gen,
+      cenario   = dir
+    )
+  })
+})
+```
+
+```{r helpers}
+safe_read <- function(path) {
+  if (!file.exists(path)) return(NULL)
+  tryCatch(
+    read_csv(path, show_col_types = FALSE) |>
+      clean_names() |>
+      mutate(across(where(is.character), trimws)),
+    error = function(e) NULL
+  )
+}
+
+fmt_tbl <- function(df, caption, col_names = NULL) {
+  kbl_obj <- kable(
+    df,
+    digits    = 4,
+    booktabs  = TRUE,
+    caption   = caption,
+    col.names = col_names %||% colnames(df),
+    linesep   = ""
+  )
+  kable_styling(
+    kbl_obj,
+    latex_options = c("striped", "hold_position", "scale_down"),
+    font_size = 9
+  )
+}
+
+`%||%` <- function(a, b) if (!is.null(a)) a else b
+
+label_modelo <- function(m) ifelse(m == "spatial", "Espacial", "Não-Espacial")
+
+titulo_cenario <- function(nome) {
+  w <- ifelse(str_detect(nome, "unif"), "Uniforme", "0.7")
+  T <- str_extract(nome, "T_\\d+") |> str_remove("T_")
+  A <- str_extract(nome, "A_\\d+") |> str_remove("A_")
+  paste0("w = ", w, ";  T = ", T, ";  A = ", A)
+}
+```
+
+---
+
+# Critérios de Informação — WAIC e LPML
+
+A comparação de WAIC e LPML entre os modelos espacial e não-espacial é o principal
+instrumento de seleção de modelos neste estudo.
+WAIC menor (ou LPML maior) indica melhor ajuste preditivo.
+
+```{r tab-criteria, results='asis'}
+tabela_criterios <- map_dfr(seq_len(nrow(resultados)), function(i) {
+  dados <- safe_read(file.path(resultados$pasta[i], "criteria.csv"))
+  if (is.null(dados)) return(NULL)
+  tibble(
+    Cenário  = titulo_cenario(resultados$cenario[i]),
+    Modelo   = label_modelo(resultados$modelo[i]),
+    `w (geração)` = resultados$w_gen[i],
+    T        = resultados$T_gen[i],
+    A        = resultados$A_gen[i],
+    WAIC     = dados$waic,
+    LPML     = dados$lpml
+  )
+})
+
+if (nrow(tabela_criterios) > 0) {
+  tabela_criterios |>
+    arrange(`w (geração)`, T, A, Modelo) |>
+    select(-Cenário) |>
+    fmt_tbl(caption = "Critérios de informação WAIC e LPML: espacial vs. não-espacial") |>
+    collapse_rows(columns = 1:3, valign = "top")
+}
+```
+
+---
+
+# Resultados Inferenciais — Parâmetros Estáticos
+
+## Coeficientes de Regressão $\beta$
+
+```{r tab-beta, results='asis'}
+tabela_betas <- map_dfr(seq_len(nrow(resultados)), function(i) {
+  dados <- safe_read(file.path(resultados$pasta[i], "beta_metrics.csv"))
+  if (is.null(dados)) return(NULL)
+  dados |>
+    mutate(
+      parametro = parameter,
+      modelo    = label_modelo(resultados$modelo[i]),
+      w_gen     = resultados$w_gen[i],
+      T_gen     = resultados$T_gen[i],
+      A_gen     = resultados$A_gen[i]
+    ) |>
+    select(parametro, modelo, w_gen, T_gen, A_gen, bias, mse, ess, coverage, rhat)
+})
+
+if (nrow(tabela_betas) > 0) {
+  tabela_betas |>
+    mutate(
+      parametro = factor(
+        parametro,
+        levels = paste0("beta[", sort(unique(
+          as.numeric(str_extract(parametro, "\\d+"))
+        )), "]")
+      )
+    ) |>
+    arrange(parametro, w_gen, T_gen, A_gen, modelo) |>
+    rename(
+      `Parâmetro` = parametro, Modelo = modelo,
+      `w (geração)` = w_gen, T = T_gen, A = A_gen,
+      Bias = bias, MSE = mse, ESS = ess,
+      Cobertura = coverage, `R-hat` = rhat
+    ) |>
+    fmt_tbl(caption = "Desempenho inferencial dos coeficientes $\\beta$") |>
+    collapse_rows(columns = 1:4, valign = "top")
+}
+```
+
+## Parâmetros de Cluster $\gamma$
+
+```{r tab-gamma, results='asis'}
+tabela_gammas <- map_dfr(seq_len(nrow(resultados)), function(i) {
+  dados <- safe_read(file.path(resultados$pasta[i], "gamma_metrics.csv"))
+  if (is.null(dados)) return(NULL)
+  dados |>
+    mutate(
+      parametro = parameter,
+      modelo    = label_modelo(resultados$modelo[i]),
+      w_gen     = resultados$w_gen[i],
+      T_gen     = resultados$T_gen[i],
+      A_gen     = resultados$A_gen[i]
+    ) |>
+    select(parametro, modelo, w_gen, T_gen, A_gen, bias, mse, ess, coverage, rhat)
+})
+
+if (nrow(tabela_gammas) > 0) {
+  tabela_gammas |>
+    mutate(
+      parametro = factor(
+        parametro,
+        levels = paste0("gamma[", sort(unique(
+          as.numeric(str_extract(parametro, "\\d+"))
+        )), "]")
+      )
+    ) |>
+    arrange(parametro, w_gen, T_gen, A_gen, modelo) |>
+    rename(
+      `Parâmetro` = parametro, Modelo = modelo,
+      `w (geração)` = w_gen, T = T_gen, A = A_gen,
+      Bias = bias, MSE = mse, ESS = ess,
+      Cobertura = coverage, `R-hat` = rhat
+    ) |>
+    fmt_tbl(caption = "Desempenho inferencial dos parâmetros de cluster $\\gamma$") |>
+    collapse_rows(columns = 1:4, valign = "top")
+} else {
+  cat("\\textit{Nenhum arquivo gamma\\_metrics.csv encontrado.}\n")
+}
+```
+
+## Precisão Espacial $\tau_s$ (apenas modelo espacial)
+
+```{r tab-tau, results='asis'}
+tabela_tau <- map_dfr(seq_len(nrow(resultados)), function(i) {
+  if (resultados$modelo[i] != "spatial") return(NULL)
+  dados <- safe_read(file.path(resultados$pasta[i], "tau_metrics.csv"))
+  if (is.null(dados)) return(NULL)
+  dados |>
+    mutate(
+      w_gen = resultados$w_gen[i],
+      T_gen = resultados$T_gen[i],
+      A_gen = resultados$A_gen[i]
+    ) |>
+    select(w_gen, T_gen, A_gen, bias, mse, ess, coverage, rhat)
+})
+
+if (nrow(tabela_tau) > 0) {
+  tabela_tau |>
+    arrange(w_gen, T_gen, A_gen) |>
+    rename(
+      `w (geração)` = w_gen, T = T_gen, A = A_gen,
+      Bias = bias, MSE = mse, ESS = ess,
+      Cobertura = coverage, `R-hat` = rhat
+    ) |>
+    fmt_tbl(caption = "Desempenho inferencial de $\\tau_s$ — modelo espacial") |>
+    collapse_rows(columns = 1:2, valign = "top")
+} else {
+  cat("\\textit{Nenhum arquivo tau\\_metrics.csv encontrado.}\n")
+}
+```
+
+---
+
+# Painéis Comparativos — Trajetórias de $\lambda$ e $\theta$
+
+Os gráficos a seguir mostram as trajetórias posteriores de $\lambda_{i,t}$ e $\theta_{i,t}$
+para os dois modelos (linha colorida = média posterior; faixa = HPD 95\%;
+linha preta tracejada = valor verdadeiro).
+
+```{r plots-lambda-theta, results='asis'}
+for (dir in base_dirs) {
+  cat("\n\n## Cenário:", titulo_cenario(dir), "\n\n")
+
+  img_lambda <- normalizePath(
+    file.path(root_dir, dir, "lambda_comparativo.png"),
+    winslash = "/", mustWork = FALSE
+  )
+  img_theta <- normalizePath(
+    file.path(root_dir, dir, "theta_comparativo.png"),
+    winslash = "/", mustWork = FALSE
+  )
+
+  if (file.exists(img_lambda) && file.exists(img_theta)) {
+    cat("\\begin{figure}[H]\n\\centering\n")
+    cat("\\begin{minipage}{0.48\\textwidth}\n\\centering\n")
+    cat("\\includegraphics[width=\\linewidth]{", img_lambda, "}\n", sep = "")
+    cat("\\caption*{Trajetórias de $\\lambda_{i,t}$}\n")
+    cat("\\end{minipage}\n\\hfill\n")
+    cat("\\begin{minipage}{0.48\\textwidth}\n\\centering\n")
+    cat("\\includegraphics[width=\\linewidth]{", img_theta, "}\n", sep = "")
+    cat("\\caption*{Trajetórias de $\\theta_{i,t}$}\n")
+    cat("\\end{minipage}\n\\end{figure}\n\n")
+  } else {
+    cat("\\textit{Imagens comparativas não encontradas para este cenário.}\n\n")
+  }
+}
+```
+
+---
+
+# Efeito Espacial Estimado $s_i$ (modelo espacial)
+
+Para cada cenário, o gráfico `s_posterior.png` exibe a média posterior e o intervalo HPD 95\%
+do efeito espacial $s_i$ por região.
+Como os dados foram gerados **sem** efeito espacial verdadeiro, espera-se que os intervalos
+incluam zero na grande maioria das regiões.
+
+```{r plots-s, results='asis'}
+for (dir in base_dirs) {
+  img_s <- normalizePath(
+    file.path(root_dir, dir, "spatial", "s_posterior.png"),
+    winslash = "/", mustWork = FALSE
+  )
+
+  if (file.exists(img_s)) {
+    cat("\n\n### Cenário:", titulo_cenario(dir), "\n\n")
+    cat("\\begin{figure}[H]\n\\centering\n")
+    cat("\\includegraphics[width=0.75\\linewidth]{", img_s, "}\n", sep = "")
+    cat("\\caption*{Efeito espacial $s_i$: média posterior e HPD 95\\%}\n")
+    cat("\\end{figure}\n\n")
+  }
+}
+```
+
+---
+
+# Diagnósticos MCMC — Traceplots por Cenário
+
+```{r traceplots, results='asis'}
+for (dir in base_dirs) {
+  cat("\n\n## Cenário:", titulo_cenario(dir), "\n\n")
+
+  imgs   <- character(0)
+  labels <- character(0)
+
+  for (m in MODEL_TYPES) {
+    img <- normalizePath(
+      file.path(root_dir, dir, m, "traceplots.png"),
+      winslash = "/", mustWork = FALSE
+    )
+    if (file.exists(img)) {
+      imgs   <- c(imgs, img)
+      labels <- c(labels, label_modelo(m))
+    }
+  }
+
+  if (length(imgs) == 0) {
+    cat("\\textit{Traceplots não encontrados para este cenário.}\n\n")
+    next
+  }
+
+  # Exibe em par (espacial | não-espacial)
+  cat("\\begin{figure}[H]\n\\centering\n")
+
+  cat("\\begin{minipage}{0.48\\textwidth}\n\\centering\n")
+  cat("\\includegraphics[width=\\linewidth]{", imgs[1], "}\n", sep = "")
+  cat("\\caption*{", labels[1], "}\n", sep = "")
+  cat("\\end{minipage}\n")
+
+  if (length(imgs) >= 2) {
+    cat("\\hfill\n")
+    cat("\\begin{minipage}{0.48\\textwidth}\n\\centering\n")
+    cat("\\includegraphics[width=\\linewidth]{", imgs[2], "}\n", sep = "")
+    cat("\\caption*{", labels[2], "}\n", sep = "")
+    cat("\\end{minipage}\n")
+  }
+
+  cat("\\end{figure}\n\n")
+}
+```
+
+---
+
+# Resumo Comparativo Consolidado
+
+```{r tab-resumo, results='asis'}
+tabela_resumo <- map_dfr(base_dirs, function(dir) {
+  dados <- safe_read(file.path(dir, "resumo_comparativo.csv"))
+  if (is.null(dados)) return(NULL)
+  info <- extrair_info(dir)
+  dados |>
+    mutate(
+      Modelo        = label_modelo(model),
+      `w (geração)` = info$w_gen,
+      T             = info$T_gen,
+      A             = info$A_gen
+    ) |>
+    select(`w (geração)`, T, A, Modelo,
+           any_of(c("waic", "lpml", "mse_beta", "mse_gamma",
+                    "coverage_beta", "coverage_gamma",
+                    "ess_beta_min", "ess_gamma_min",
+                    "ess_global_min", "rhat_max")))
+})
+
+if (nrow(tabela_resumo) > 0) {
+  tabela_resumo |>
+    arrange(`w (geração)`, T, A, Modelo) |>
+    rename_with(~ str_replace_all(.x, "_", " ") |> str_to_title(),
+                .cols = -c(`w (geração)`, T, A, Modelo)) |>
+    fmt_tbl(caption = "Resumo comparativo consolidado por cenário e modelo") |>
+    collapse_rows(columns = 1:3, valign = "top")
+} else {
+  cat("\\textit{Arquivo resumo\\_comparativo.csv não encontrado em nenhum diretório.}\n")
+}
+```
+
+---
+
+# Conclusão
+
+Este estudo examina o custo e o benefício de incluir um componente espacial ICAR quando os
+dados foram gerados sem efeito espacial verdadeiro.
+Os resultados permitem avaliar:
+
+- Se o WAIC/LPML penaliza adequadamente o modelo espacial desnecessário.
+- Se a cobertura e o viés dos parâmetros $\beta$ e $\gamma$ se deterioram com a inclusão
+  espúria de $s_i$.
+- Se o efeito espacial estimado $s_i$ é corretamente concentrado em torno de zero.
+- O comportamento do MCMC (ESS, $\hat{R}$, traceplots) em ambos os modelos.
