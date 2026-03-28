@@ -16,7 +16,7 @@ w_true    <- runif(N_regions, 0.7, 0.99)   # vetor por região
 a0_true   <- 1.0
 b0_true   <- 1.0
 
-set.seed(1)
+
 
 # Estrutura real de clusters
 h_cumulativo <- data$hAI
