@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.2.19)  19 MAR 2026 11:35
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.2.19)  31 MAR 2026 12:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -628,252 +628,234 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 108.
 (c:/Users/vlara/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
-ignored error: Infinite glue shrinkage found in box being split [2{c:/Users/vlara/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/Users/vlara/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/vlara/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
+) [2{c:/Users/vlara/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{c:/Users/vlara/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/Users/vlara/AppData/Roaming/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}]
 ignored error: Infinite glue shrinkage found in box being split [3]
 ignored error: Infinite glue shrinkage found in box being split [4]
 ignored error: Infinite glue shrinkage found in box being split [5]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 461.
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/lambda_comparativo.png, id=95, 1011.78pt x 722.7pt>
+(Font)              <14.4> on input line 427.
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/lambda_comparativo.png, id=97, 1011.78pt x 722.7pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/lambda_comparativo.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/lambda_comparativo.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/lambda_comparativo.png  used on input line 475.
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/lambda_comparativo.png  used on input line 441.
 (pdftex.def)             Requested size: 225.4804pt x 161.05663pt.
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/theta_comparativo.png, id=96, 1011.78pt x 722.7pt>
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/theta_comparativo.png, id=98, 1011.78pt x 722.7pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/theta_comparativo.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/theta_comparativo.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/theta_comparativo.png  used on input line 481.
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/theta_comparativo.png  used on input line 447.
 (pdftex.def)             Requested size: 225.4804pt x 161.05663pt.
-[6]
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/lambda_comparativo.png, id=103, 1011.78pt x 722.7pt>
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/lambda_comparativo.png, id=99, 1011.78pt x 722.7pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/lambda_comparativo.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/lambda_comparativo.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/lambda_comparativo.png  used on input line 493.
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/lambda_comparativo.png  used on input line 459.
 (pdftex.def)             Requested size: 225.4804pt x 161.05663pt.
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/theta_comparativo.png, id=104, 1011.78pt x 722.7pt>
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/theta_comparativo.png, id=100, 1011.78pt x 722.7pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/theta_comparativo.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/theta_comparativo.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/theta_comparativo.png  used on input line 499.
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/theta_comparativo.png  used on input line 465.
 (pdftex.def)             Requested size: 225.4804pt x 161.05663pt.
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/lambda_comparativo.png, id=105, 1011.78pt x 722.7pt>
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/lambda_comparativo.png, id=101, 1011.78pt x 722.7pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/lambda_comparativo.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/lambda_comparativo.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/lambda_comparativo.png  used on input line 511.
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/lambda_comparativo.png  used on input line 477.
 (pdftex.def)             Requested size: 225.4804pt x 161.05663pt.
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/theta_comparativo.png, id=106, 1011.78pt x 722.7pt>
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/theta_comparativo.png, id=102, 1011.78pt x 722.7pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/theta_comparativo.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/theta_comparativo.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/theta_comparativo.png  used on input line 517.
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/theta_comparativo.png  used on input line 483.
 (pdftex.def)             Requested size: 225.4804pt x 161.05663pt.
-[7 <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/lambda_comparativo.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/theta_comparativo.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/lambda_comparativo.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/theta_comparativo.png>]
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/lambda_comparativo.png, id=114, 1011.78pt x 722.7pt>
+[6 <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/lambda_comparativo.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/theta_comparativo.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/lambda_comparativo.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/theta_comparativo.png>]
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/lambda_comparativo.png, id=109, 1011.78pt x 722.7pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/lambda_comparativo.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/lambda_comparativo.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/lambda_comparativo.png  used on input line 529.
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/lambda_comparativo.png  used on input line 495.
 (pdftex.def)             Requested size: 225.4804pt x 161.05663pt.
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/theta_comparativo.png, id=115, 1011.78pt x 722.7pt>
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/theta_comparativo.png, id=110, 1011.78pt x 722.7pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/theta_comparativo.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/theta_comparativo.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/theta_comparativo.png  used on input line 535.
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/theta_comparativo.png  used on input line 501.
 (pdftex.def)             Requested size: 225.4804pt x 161.05663pt.
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/lambda_comparativo.png, id=116, 1011.78pt x 722.7pt>
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/lambda_comparativo.png, id=111, 1011.78pt x 722.7pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/lambda_comparativo.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/lambda_comparativo.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/lambda_comparativo.png  used on input line 547.
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/lambda_comparativo.png  used on input line 513.
 (pdftex.def)             Requested size: 225.4804pt x 161.05663pt.
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/theta_comparativo.png, id=117, 1011.78pt x 722.7pt>
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/theta_comparativo.png, id=112, 1011.78pt x 722.7pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/theta_comparativo.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/theta_comparativo.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/theta_comparativo.png  used on input line 553.
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/theta_comparativo.png  used on input line 519.
 (pdftex.def)             Requested size: 225.4804pt x 161.05663pt.
-[8 <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/lambda_comparativo.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/theta_comparativo.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/lambda_comparativo.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/theta_comparativo.png>]
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/lambda_comparativo.png, id=124, 1011.78pt x 722.7pt>
+[7 <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/lambda_comparativo.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/theta_comparativo.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/lambda_comparativo.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/theta_comparativo.png>]
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/lambda_comparativo.png, id=120, 1011.78pt x 722.7pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/lambda_comparativo.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/lambda_comparativo.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/lambda_comparativo.png  used on input line 565.
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/lambda_comparativo.png  used on input line 531.
 (pdftex.def)             Requested size: 225.4804pt x 161.05663pt.
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/theta_comparativo.png, id=125, 1011.78pt x 722.7pt>
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/theta_comparativo.png, id=121, 1011.78pt x 722.7pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/theta_comparativo.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/theta_comparativo.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/theta_comparativo.png  used on input line 571.
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/theta_comparativo.png  used on input line 537.
 (pdftex.def)             Requested size: 225.4804pt x 161.05663pt.
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/lambda_comparativo.png, id=126, 1011.78pt x 722.7pt>
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/lambda_comparativo.png, id=122, 1011.78pt x 722.7pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/lambda_comparativo.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/lambda_comparativo.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/lambda_comparativo.png  used on input line 583.
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/lambda_comparativo.png  used on input line 549.
 (pdftex.def)             Requested size: 225.4804pt x 161.05663pt.
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/theta_comparativo.png, id=127, 1011.78pt x 722.7pt>
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/theta_comparativo.png, id=123, 1011.78pt x 722.7pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/theta_comparativo.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/theta_comparativo.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/theta_comparativo.png  used on input line 589.
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/theta_comparativo.png  used on input line 555.
 (pdftex.def)             Requested size: 225.4804pt x 161.05663pt.
-[9 <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/lambda_comparativo.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/theta_comparativo.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/lambda_comparativo.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/theta_comparativo.png>]
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/lambda_comparativo.png, id=134, 1011.78pt x 722.7pt>
+[8 <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/lambda_comparativo.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/theta_comparativo.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/lambda_comparativo.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/theta_comparativo.png>]
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/lambda_comparativo.png, id=132, 1011.78pt x 722.7pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/lambda_comparativo.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/lambda_comparativo.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/lambda_comparativo.png  used on input line 601.
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/lambda_comparativo.png  used on input line 567.
 (pdftex.def)             Requested size: 225.4804pt x 161.05663pt.
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/theta_comparativo.png, id=135, 1011.78pt x 722.7pt>
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/theta_comparativo.png, id=133, 1011.78pt x 722.7pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/theta_comparativo.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/theta_comparativo.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/theta_comparativo.png  used on input line 607.
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/theta_comparativo.png  used on input line 573.
 (pdftex.def)             Requested size: 225.4804pt x 161.05663pt.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 617.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 583.
 (c:/Users/vlara/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/spatial/s_posterior.png, id=136, 578.16pt x 361.35pt>
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/spatial/s_posterior.png, id=134, 578.16pt x 361.35pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/spatial/s_posterior.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/spatial/s_posterior.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/spatial/s_posterior.png  used on input line 627.
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/spatial/s_posterior.png  used on input line 593.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
-[10 <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/lambda_comparativo.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/theta_comparativo.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/lambda_comparativo.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/theta_comparativo.png>]
+[9 <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/lambda_comparativo.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/theta_comparativo.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/lambda_comparativo.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/theta_comparativo.png>]
 <C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/spatial/s_posterior.png, id=144, 578.16pt x 361.35pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/spatial/s_posterior.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/spatial/s_posterior.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/spatial/s_posterior.png  used on input line 636.
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/spatial/s_posterior.png  used on input line 602.
 (pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
 <C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/spatial/s_posterior.png, id=145, 722.7pt x 361.35pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/spatial/s_posterior.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/spatial/s_posterior.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/spatial/s_posterior.png  used on input line 645.
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/spatial/s_posterior.png  used on input line 611.
 (pdftex.def)             Requested size: 352.31625pt x 176.1588pt.
-[11 <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/spatial/s_posterior.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/spatial/s_posterior.png>]
+[10 <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/spatial/s_posterior.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/spatial/s_posterior.png>]
 <C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/spatial/s_posterior.png, id=154, 722.7pt x 361.35pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/spatial/s_posterior.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/spatial/s_posterior.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/spatial/s_posterior.png  used on input line 654.
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/spatial/s_posterior.png  used on input line 620.
 (pdftex.def)             Requested size: 352.31625pt x 176.1588pt.
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/spatial/s_posterior.png, id=155, 578.16pt x 361.35pt>
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/spatial/s_posterior.png, id=155, 722.7pt x 361.35pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/spatial/s_posterior.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/spatial/s_posterior.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/spatial/s_posterior.png  used on input line 663.
-(pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
-[12 <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/spatial/s_posterior.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/spatial/s_posterior.png>]
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/spatial/s_posterior.png, id=165, 578.16pt x 361.35pt>
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/spatial/s_posterior.png  used on input line 629.
+(pdftex.def)             Requested size: 352.31625pt x 176.1588pt.
+[11 <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/spatial/s_posterior.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/spatial/s_posterior.png>]
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/spatial/s_posterior.png, id=164, 722.7pt x 361.35pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/spatial/s_posterior.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/spatial/s_posterior.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/spatial/s_posterior.png  used on input line 672.
-(pdftex.def)             Requested size: 352.31625pt x 220.19711pt.
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/spatial/s_posterior.png, id=166, 722.7pt x 361.35pt>
-File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/spatial/s_posterior.png Graphic file (type png)
-<use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/spatial/s_posterior.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/spatial/s_posterior.png  used on input line 681.
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/spatial/s_posterior.png  used on input line 638.
 (pdftex.def)             Requested size: 352.31625pt x 176.1588pt.
-[13 <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/spatial/s_posterior.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/spatial/s_posterior.png>]
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/spatial/s_posterior.png, id=176, 722.7pt x 361.35pt>
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/spatial/s_posterior.png, id=165, 722.7pt x 361.35pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/spatial/s_posterior.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/spatial/s_posterior.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/spatial/s_posterior.png  used on input line 690.
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/spatial/s_posterior.png  used on input line 647.
 (pdftex.def)             Requested size: 352.31625pt x 176.1588pt.
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/spatial/traceplots.png, id=177, 722.7pt x 433.62pt>
+[12 <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/spatial/s_posterior.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/spatial/s_posterior.png>]
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/spatial/traceplots.png, id=176, 722.7pt x 433.62pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/spatial/traceplots.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/spatial/traceplots.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/spatial/traceplots.png  used on input line 706.
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/spatial/traceplots.png  used on input line 663.
 (pdftex.def)             Requested size: 225.4804pt x 135.28757pt.
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/non_spatial/traceplots.png, id=178, 722.7pt x 433.62pt>
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/non_spatial/traceplots.png, id=177, 722.7pt x 433.62pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/non_spatial/traceplots.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/non_spatial/traceplots.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/non_spatial/traceplots.png  used on input line 712.
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/non_spatial/traceplots.png  used on input line 669.
 (pdftex.def)             Requested size: 225.4804pt x 135.28757pt.
-[14 <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/spatial/s_posterior.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/spatial/s_posterior.png>]
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/spatial/traceplots.png, id=187, 722.7pt x 433.62pt>
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/spatial/traceplots.png, id=178, 722.7pt x 433.62pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/spatial/traceplots.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/spatial/traceplots.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/spatial/traceplots.png  used on input line 724.
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/spatial/traceplots.png  used on input line 681.
 (pdftex.def)             Requested size: 225.4804pt x 135.28757pt.
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/non_spatial/traceplots.png, id=188, 722.7pt x 433.62pt>
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/non_spatial/traceplots.png, id=179, 722.7pt x 433.62pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/non_spatial/traceplots.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/non_spatial/traceplots.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/non_spatial/traceplots.png  used on input line 730.
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/non_spatial/traceplots.png  used on input line 687.
 (pdftex.def)             Requested size: 225.4804pt x 135.28757pt.
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/spatial/traceplots.png, id=189, 722.7pt x 433.62pt>
+[13 <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/spatial/s_posterior.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/spatial/traceplots.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/non_spatial/traceplots.png>]
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/spatial/traceplots.png, id=188, 722.7pt x 433.62pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/spatial/traceplots.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/spatial/traceplots.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/spatial/traceplots.png  used on input line 742.
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/spatial/traceplots.png  used on input line 699.
 (pdftex.def)             Requested size: 225.4804pt x 135.28757pt.
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/non_spatial/traceplots.png, id=190, 722.7pt x 433.62pt>
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/non_spatial/traceplots.png, id=189, 722.7pt x 433.62pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/non_spatial/traceplots.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/non_spatial/traceplots.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/non_spatial/traceplots.png  used on input line 748.
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/non_spatial/traceplots.png  used on input line 705.
 (pdftex.def)             Requested size: 225.4804pt x 135.28757pt.
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/spatial/traceplots.png, id=191, 722.7pt x 433.62pt>
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/spatial/traceplots.png, id=190, 722.7pt x 433.62pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/spatial/traceplots.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/spatial/traceplots.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/spatial/traceplots.png  used on input line 760.
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/spatial/traceplots.png  used on input line 717.
 (pdftex.def)             Requested size: 225.4804pt x 135.28757pt.
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/non_spatial/traceplots.png, id=192, 722.7pt x 433.62pt>
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/non_spatial/traceplots.png, id=191, 722.7pt x 433.62pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/non_spatial/traceplots.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/non_spatial/traceplots.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/non_spatial/traceplots.png  used on input line 766.
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/non_spatial/traceplots.png  used on input line 723.
 (pdftex.def)             Requested size: 225.4804pt x 135.28757pt.
-[15 <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/spatial/traceplots.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_75/non_spatial/traceplots.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/spatial/traceplots.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/non_spatial/traceplots.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/spatial/traceplots.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/non_spatial/traceplots.png>]
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/spatial/traceplots.png, id=200, 722.7pt x 433.62pt>
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/spatial/traceplots.png, id=192, 722.7pt x 650.43pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/spatial/traceplots.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/spatial/traceplots.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/spatial/traceplots.png  used on input line 778.
-(pdftex.def)             Requested size: 225.4804pt x 135.28757pt.
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/non_spatial/traceplots.png, id=201, 722.7pt x 433.62pt>
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/spatial/traceplots.png  used on input line 735.
+(pdftex.def)             Requested size: 225.4804pt x 202.93135pt.
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/non_spatial/traceplots.png, id=193, 722.7pt x 650.43pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/non_spatial/traceplots.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/non_spatial/traceplots.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/non_spatial/traceplots.png  used on input line 784.
-(pdftex.def)             Requested size: 225.4804pt x 135.28757pt.
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/spatial/traceplots.png, id=202, 722.7pt x 433.62pt>
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/non_spatial/traceplots.png  used on input line 741.
+(pdftex.def)             Requested size: 225.4804pt x 202.93135pt.
+[14 <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/spatial/traceplots.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_75/non_spatial/traceplots.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/spatial/traceplots.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_25_A_510/non_spatial/traceplots.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/spatial/traceplots.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/non_spatial/traceplots.png>]
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/spatial/traceplots.png, id=201, 722.7pt x 650.43pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/spatial/traceplots.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/spatial/traceplots.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/spatial/traceplots.png  used on input line 796.
-(pdftex.def)             Requested size: 225.4804pt x 135.28757pt.
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/non_spatial/traceplots.png, id=203, 722.7pt x 433.62pt>
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/spatial/traceplots.png  used on input line 753.
+(pdftex.def)             Requested size: 225.4804pt x 202.93135pt.
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/non_spatial/traceplots.png, id=202, 722.7pt x 650.43pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/non_spatial/traceplots.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/non_spatial/traceplots.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/non_spatial/traceplots.png  used on input line 802.
-(pdftex.def)             Requested size: 225.4804pt x 135.28757pt.
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/spatial/traceplots.png, id=204, 722.7pt x 433.62pt>
-File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/spatial/traceplots.png Graphic file (type png)
-<use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/spatial/traceplots.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/spatial/traceplots.png  used on input line 814.
-(pdftex.def)             Requested size: 225.4804pt x 135.28757pt.
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/non_spatial/traceplots.png, id=205, 722.7pt x 433.62pt>
-File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/non_spatial/traceplots.png Graphic file (type png)
-<use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/non_spatial/traceplots.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/non_spatial/traceplots.png  used on input line 820.
-(pdftex.def)             Requested size: 225.4804pt x 135.28757pt.
-[16 <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/spatial/traceplots.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_0_7_T_100_A_510/non_spatial/traceplots.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/spatial/traceplots.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/non_spatial/traceplots.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/spatial/traceplots.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/non_spatial/traceplots.png>]
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/spatial/traceplots.png, id=213, 722.7pt x 433.62pt>
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/non_spatial/traceplots.png  used on input line 759.
+(pdftex.def)             Requested size: 225.4804pt x 202.93135pt.
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/spatial/traceplots.png, id=203, 722.7pt x 650.43pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/spatial/traceplots.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/spatial/traceplots.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/spatial/traceplots.png  used on input line 832.
-(pdftex.def)             Requested size: 225.4804pt x 135.28757pt.
-<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/non_spatial/traceplots.png, id=214, 722.7pt x 433.62pt>
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/spatial/traceplots.png  used on input line 776.
+(pdftex.def)             Requested size: 225.4804pt x 202.93135pt.
+<C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/non_spatial/traceplots.png, id=204, 722.7pt x 650.43pt>
 File: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/non_spatial/traceplots.png Graphic file (type png)
 <use C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/non_spatial/traceplots.png>
-Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/non_spatial/traceplots.png  used on input line 838.
-(pdftex.def)             Requested size: 225.4804pt x 135.28757pt.
-
-Overfull \hbox (355.02242pt too wide) in alignment at lines 850--887
+Package pdftex.def Info: C:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/non_spatial/traceplots.png  used on input line 782.
+(pdftex.def)             Requested size: 225.4804pt x 202.93135pt.
+[15 <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/spatial/traceplots.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_75/non_spatial/traceplots.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/spatial/traceplots.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_75/non_spatial/traceplots.png>]
+Overfull \hbox (355.02242pt too wide) in alignment at lines 794--831
  [] [] [] [] [] [] [] [] [] [] [] [] [] [] 
  []
 
-ignored error: Infinite glue shrinkage found in box being split [17 <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/spatial/traceplots.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_25_A_510/non_spatial/traceplots.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/spatial/traceplots.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/non_spatial/traceplots.png>] [18] (./results_spatial_vs_nonspatial.aux)
+[16 <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/spatial/traceplots.png> <c:/Users/vlara/OneDrive/Estatistica UFMG/Mestrado/Pesquisa/Simulacao/main/resultados_spatial_vs_nonspatial_w_unif_T_100_A_510/non_spatial/traceplots.png>] [17] (./results_spatial_vs_nonspatial.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 16586 strings out of 469514
- 307622 string characters out of 5468199
- 823085 words of memory out of 5000000
- 44811 multiletter control sequences out of 15000+600000
- 690927 words of font info for 130 fonts, out of 8000000 for 9000
+ 16568 strings out of 469514
+ 304373 string characters out of 5468199
+ 801004 words of memory out of 5000000
+ 44792 multiletter control sequences out of 15000+600000
+ 695450 words of font info for 133 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 89i,10n,93p,1026b,634s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/Users/vlara/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/vlara/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/vlara/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/vlara/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/Users/vlara/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi7.pfb><c:/Users/vlara/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/vlara/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/vlara/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/vlara/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/vlara/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/Users/vlara/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/vlara/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
-Output written on results_spatial_vs_nonspatial.pdf (18 pages, 19490424 bytes).
+ 89i,10n,93p,1026b,633s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/Users/vlara/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb><c:/Users/vlara/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/Users/vlara/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/Users/vlara/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/Users/vlara/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi7.pfb><c:/Users/vlara/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/Users/vlara/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb><c:/Users/vlara/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/Users/vlara/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb><c:/Users/vlara/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr9.pfb><c:/Users/vlara/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/Users/vlara/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/Users/vlara/AppData/Roaming/TinyTeX/texmf-dist/fonts/type1/public/lm/lmtt10.pfb>
+Output written on results_spatial_vs_nonspatial.pdf (17 pages, 18843463 bytes).
 PDF statistics:
- 388 PDF objects out of 1000 (max. 8388607)
- 299 compressed objects within 3 object streams
- 84 named destinations out of 1000 (max. 500000)
- 37281 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 390 PDF objects out of 1000 (max. 8388607)
+ 296 compressed objects within 3 object streams
+ 80 named destinations out of 1000 (max. 500000)
+ 39314 words of extra memory for PDF output out of 42996 (max. 10000000)
 

@@ -16,7 +16,7 @@ w_true    <- runif(N_regions, 0.7, 0.99)
 a0_true   <- 1.0
 b0_true   <- 1.0
 
-set.seed(1)
+
 
 h_cumulativo <- data$hAI
 gamma_true   <- c(0.05, 0.10, 0.10, 0.15)
